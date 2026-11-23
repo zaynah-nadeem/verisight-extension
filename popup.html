@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Verisight</title>
+  <link rel="stylesheet" href="popup.css" />
+</head>
+<body>
+  <div class="dfd-container">
+    <header class="dfd-header">
+      <h1>Verisight</h1>
+      <label class="dfd-toggle">
+        <input type="checkbox" id="autoScanToggle" />
+        <span class="dfd-toggle-slider"></span>
+        <span class="dfd-toggle-label">Auto-scan</span>
+      </label>
+    </header>
+
+    <section class="dfd-stats">
+      <div class="dfd-stat">
+        <span class="dfd-stat-value" id="statTotal">0</span>
+        <span class="dfd-stat-label">Scanned</span>
+      </div>
+      <div class="dfd-stat dfd-stat-ai">
+        <span class="dfd-stat-value" id="statAi">0</span>
+        <span class="dfd-stat-label">AI</span>
+      </div>
+      <div class="dfd-stat dfd-stat-unsure">
+        <span class="dfd-stat-value" id="statUnsure">0</span>
+        <span class="dfd-stat-label">Unsure</span>
+      </div>
+      <div class="dfd-stat dfd-stat-real">
+        <span class="dfd-stat-value" id="statReal">0</span>
+        <span class="dfd-stat-label">Real</span>
+      </div>
+    </section>
+
+    <section class="dfd-manual">
+      <label for="manualUrl">Scan an image URL (can take up to a minute)</label>
+      <div class="dfd-manual-row">
+        <input type="text" id="manualUrl" placeholder="https://example.com/image.jpg" />
+        <button id="manualScanBtn">Scan</button>
+      </div>
+      <div id="manualResult" class="dfd-manual-result" hidden></div>
+    </section>
+
+    <section class="dfd-history">
+      <h2>Recent scans</h2>
+      <div id="historyList" class="dfd-history-list">
+        <p class="dfd-empty">No scans yet.</p>
+      </div>
+    </section>
+
+    <button id="clearCacheBtn" class="dfd-clear-cache">Clear cache &amp; rescan everything</button>
+  </div>
+
+  <script src="popup.js"></script>
+</body>
+</html>

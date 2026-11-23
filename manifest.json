@@ -1,0 +1,36 @@
+{
+  "manifest_version": 3,
+  "name": "Verisight",
+  "version": "2.0.0",
+  "description": "Scans images on Instagram and Facebook for signs of AI-generated content using the same detection engine as the Verisight app (local backend).",
+  "permissions": [
+    "storage",
+    "activeTab",
+    "scripting"
+  ],
+  "host_permissions": [
+    "https://www.instagram.com/*",
+    "https://www.facebook.com/*",
+    "http://localhost:8000/*",
+    "http://127.0.0.1:8000/*"
+  ],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "content_scripts": [
+    {
+      "matches": [
+        "https://www.instagram.com/*",
+        "https://www.facebook.com/*"
+      ],
+      "js": [
+        "content.js"
+      ],
+      "run_at": "document_idle"
+    }
+  ],
+  "action": {
+    "default_popup": "popup.html",
+    "default_title": "Verisight"
+  }
+}
